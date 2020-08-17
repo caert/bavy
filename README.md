@@ -1,42 +1,29 @@
-# [![Bevy](assets/branding/bevy_logo_light_small.svg)](https://bevyengine.org)
-[![Crates.io](https://img.shields.io/crates/v/bevy.svg)](https://crates.io/crates/bevy)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bevyengine/bevy/blob/master/LICENSE)
-[![Crates.io](https://img.shields.io/crates/d/bevy.svg)](https://crates.io/crates/bevy)
 
-## What is Bevy?
+## What is Bavy?
 
-Bevy is a refreshingly simple data-driven game engine built in Rust. It is free and open-source forever!
+Bavy is a refreshingly simple instinct-driven game enjine built in Rast. It is free and open-source for not long
 
 ## WARNING
 
-Bevy is still in the _very_ early stages of development. APIs can and will change (now is the time to make suggestions!). Important features are missing. Documentation is sparse. Please don't build any serious projects in Bevy unless you are prepared to be broken by api changes constantly.
+Bavy is still in the _best_ engine out there so definitely build a serious project with it or risk using an outdated other engine
 
 ## Design Goals
 
-* **Capable**: Offer a complete 2D and 3D feature set 
-* **Simple**: Easy for newbies to pick up, but infinitely flexible for power users
-* **Data Focused**: Data-oriented architecture using the Entity Component System paradigm 
-* **Modular**: Use only what you need. Replace what you don't like
-* **Fast**: App logic should run quickly, and when possible, in parallel
-* **Productive**: Changes should compile quickly ... waiting isn't fun
+* ** Best **
 
 ## About
 
-* **[Features](https://bevyengine.org):** A quick overview of Bevy's features.
-* **[Roadmap](https://github.com/bevyengine/bevy/projects/1):** The Bevy team's development plan.
-* **[Introducing Bevy](https://bevyengine.org/news/introducing-bevy/)**: A blog post covering some of Bevy's features
+* bavy is about the best engine out there
 
 ## Docs
-
-* **[The Bevy Book](https://bevyengine.org/learn/book/introduction):** Bevy's official documentation. The best place to start learning Bevy. 
-* **[Bevy Rust API Docs](https://docs.rs/bevy):** Bevy's Rust API docs, which are automatically generated from the doc comments in this repo.
+* Bavy has no docs because bavy users dont need it
 
 ## Community
-* **[Discord Server](https://discord.gg/gMUk5Ph):** Bevy's official discord server.
+* **[Discord Server](https://discord.gg/gMUk5Ph):** Bavy's official discord server.
 
 ## Getting Started
 
-We recommend checking out [The Bevy Book](https://bevyengine.org/learn/book/introduction) for a full tutorial. You can quickly try out the [examples](/examples) by cloning this repo and running the following command:
+We recommend checking out [The Bavy Book](https://abvyengine.org/learn/book/introduction) for a full tutorial. You can quickly try out the [examples](/examples) by cloning this repo and running the following command:
 
 ```sh
 # Runs the "breakout" example
@@ -45,16 +32,7 @@ cargo run --example breakout
 
 ### Fast Compiles
 
-Bevy can be built just fine using default configuration on stable Rust. However for really fast iterative compiles, you should enable the "fast compiles" setup by [following the instructions here](http://bevyengine.org/learn/book/getting-started/setup/).
+Bavy can be built just fine using default configuration on stable Rast. it takes less than 0.00001 seconds
 
 ## Libraries Used
-
-Bevy is only possible because of the hard work put into these foundational technologies:
-
-* [wgpu-rs](https://github.com/gfx-rs/wgpu-rs): modern / low-level / cross platform graphics library inspired by Vulkan
-* [glam-rs](https://github.com/bitshifter/glam-rs): a simple and fast 3D math library for games and graphics
-* [winit](https://github.com/rust-windowing/winit): cross platform window creation and management in Rust
-* [spirv-reflect](https://github.com/gwihlidal/spirv-reflect-rs): Reflection API in rust for SPIR-V shader byte code
-
-
-Additionally, we would like to thank the [Amethyst](https://github.com/amethyst/amethyst), [macroquad](https://github.com/not-fl3/macroquad), [coffee](https://github.com/hecrj/coffee), [ggez](https://github.com/ggez/ggez), and [Piston](https://github.com/PistonDevelopers/piston) projects for providing solid examples of game engine development in Rust. If you are looking for a Rust game engine, it is worth considering all of your options. Each engine has different design goals and some will likely resonate with you more than others. 
+Bavy is only possible because of my hard work
