@@ -1,0 +1,22 @@
+[package]
+name = "bevy_diagnostic"
+version = "0.1.0"
+edition = "2018"
+authors = ["Bevy Contributors <bevyengine@gmail.com>", "Carter Anderson <mcanders1@gmail.com>"]
+description = "Provides diagnostic functionality for Bevy Engine"
+homepage = "https://bevyengine.org"
+repository = "https://github.com/bevyengine/bevy"
+license = "MIT"
+keywords = ["bevy"]
+
+[features]
+profiler = ["bevy_ecs/profiler"]
+
+[dependencies]
+# bevy
+bevy_app = { path = "../bevy_app", version = "0.1" }
+bevy_core = { path = "../bevy_core", version = "0.1" }
+bevy_ecs = { path = "../bevy_ecs", version = "0.1" }
+
+# other
+uuid = { version = "0.8", features = ["v4", "serde"] }

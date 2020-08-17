@@ -1,0 +1,67 @@
+use crate::serde::SceneSerializer;
+use anyhow::Result;
+use bevy_ecs::World;
+use bevy_property::{DynamicProperties, PropertyTypeRegistry};
+use bevy_type_registry::ComponentRegistry;
+use serde::Serialize;
+
+#[derive(Default)]
+pub struct Scene {
+    pub entities: Vec<Entity>,
+}
+
+pub struct Entity {
+    pub entity: u32,
+    pub components: Vec<DynamicProperties>,
+}
+
+impl Scene {
+    pub fn from_world(world: &World, component_registry: &ComponentRegistry) -> Self {
+        let mut scene = Scene::default();
+        for archetype in world.archetypes() {
+            let mut entities = Vec::new();
+            for (index, entity) in archetype.iter_entities().enumerate() {
+                if index == entities.len() {
+                    entities.push(Entity {
+                        entity: *entity,
+                        components: Vec::new(),
+                    })
+                }
+                for type_info in archetype.types() {
+                    if let Some(component_registration) = component_registry.get(&type_info.id()) {
+                        let properties =
+                            component_registration.get_component_properties(&archetype, index);
+
+                        entities[index].components.push(properties.to_dynamic());
+                    }
+                }
+            }
+
+            scene.entities.extend(entities.drain(..));
+        }
+
+        scene
+    }
+
+    // TODO: move to AssetSaver when it is implemented
+    pub fn serialize_ron(
+        &self,
+        registry: &PropertyTypeRegistry,
+    ) -> Result<String, bevy_ron::Error> {
+        serialize_ron(SceneSerializer::new(self, registry))
+    }
+}
+
+pub fn serialize_ron<S>(serialize: S) -> Result<String, bevy_ron::Error>
+where
+    S: Serialize,
+{
+    let pretty_config = bevy_ron::ser::PrettyConfig::default()
+        .decimal_floats(true)
+        .indentor("  ".to_string())
+        .new_line("\n".to_string());
+    let mut buf = Vec::new();
+    let mut ron_serializer = bevy_ron::ser::Serializer::new(&mut buf, Some(pretty_config), false)?;
+    serialize.serialize(&mut ron_serializer)?;
+    Ok(String::from_utf8(buf).unwrap())
+}

@@ -1,0 +1,224 @@
+[package]
+name = "bevy"
+version = "0.1.2"
+edition = "2018"
+authors = ["Bevy Contributors <bevyengine@gmail.com>", "Carter Anderson <mcanders1@gmail.com>"]
+description = "A refreshingly simple data-driven game engine and app framework"
+homepage = "https://bevyengine.org"
+repository = "https://github.com/bevyengine/bevy"
+license = "MIT"
+keywords = ["game", "engine", "gamedev", "graphics", "bevy"]
+categories = ["game-engines", "graphics", "gui", "rendering"]
+readme = "README.md"
+exclude = ["assets/**/*", "tools/**/*", ".github/**/*", "crates/**/*"]
+
+[features]
+default = ["bevy_audio", "bevy_gltf", "bevy_wgpu", "bevy_winit", "png", "hdr", "mp3"]
+profiler = ["bevy_ecs/profiler", "bevy_diagnostic/profiler"]
+wgpu_trace = ["bevy_wgpu/trace"]
+
+# Image format support for texture loading (PNG and HDR are enabled by default)
+png = ["bevy_render/png"]
+hdr = ["bevy_render/hdr"]
+
+# Audio format support (MP3 is enabled by default)
+mp3 = ["bevy_audio/mp3"]
+flac = ["bevy_audio/flac"]
+wav = ["bevy_audio/wav"]
+vorbis = ["bevy_audio/vorbis"]
+
+[workspace]
+members = [
+    "crates/*",
+    "crates/bevy_ecs/hecs",
+]
+
+[dependencies]
+# bevy
+bevy_app = { path = "crates/bevy_app", version = "0.1" }
+bevy_asset = { path = "crates/bevy_asset", version = "0.1" }
+bevy_type_registry = { path = "crates/bevy_type_registry", version = "0.1" }
+bevy_core = { path = "crates/bevy_core", version = "0.1" }
+bevy_diagnostic = { path = "crates/bevy_diagnostic", version = "0.1" }
+bevy_ecs = { path = "crates/bevy_ecs", version = "0.1" }
+bevy_input = { path = "crates/bevy_input", version = "0.1" }
+bevy_math = { path = "crates/bevy_math", version = "0.1" }
+bevy_pbr = { path = "crates/bevy_pbr", version = "0.1" }
+bevy_property = { path = "crates/bevy_property", version = "0.1" }
+bevy_render = { path = "crates/bevy_render", version = "0.1" }
+bevy_scene = { path = "crates/bevy_scene", version = "0.1" }
+bevy_sprite = { path = "crates/bevy_sprite", version = "0.1" }
+bevy_transform = { path = "crates/bevy_transform", version = "0.1" }
+bevy_text = { path = "crates/bevy_text", version = "0.1" }
+bevy_ui = { path = "crates/bevy_ui", version = "0.1" }
+bevy_window = { path = "crates/bevy_window", version = "0.1" }
+
+# bevy (optional)
+bevy_audio = { path = "crates/bevy_audio", optional = true, version = "0.1" }
+bevy_gltf = { path = "crates/bevy_gltf", optional = true, version = "0.1" }
+bevy_wgpu = { path = "crates/bevy_wgpu", optional = true, version = "0.1" }
+bevy_winit = { path = "crates/bevy_winit", optional = true, version = "0.1" }
+
+[dev-dependencies]
+rand = "0.7.2"
+serde = { version = "1", features = ["derive"]}
+
+[[example]]
+name = "hello_world"
+path = "examples/hello_world.rs"
+
+[[example]]
+name = "sprite"
+path = "examples/2d/sprite.rs"
+
+[[example]]
+name = "sprite_sheet"
+path = "examples/2d/sprite_sheet.rs"
+
+[[example]]
+name = "texture_atlas"
+path = "examples/2d/texture_atlas.rs"
+
+[[example]]
+name = "load_model"
+path = "examples/3d/load_model.rs"
+
+[[example]]
+name = "msaa"
+path = "examples/3d/msaa.rs"
+
+[[example]]
+name = "parenting"
+path = "examples/3d/parenting.rs"
+
+[[example]]
+name = "3d_scene"
+path = "examples/3d/3d_scene.rs"
+
+[[example]]
+name = "spawner"
+path = "examples/3d/spawner.rs"
+
+[[example]]
+name = "texture"
+path = "examples/3d/texture.rs"
+
+[[example]]
+name = "z_sort_debug"
+path = "examples/3d/z_sort_debug.rs"
+
+[[example]]
+name = "empty_defaults"
+path = "examples/app/empty_defaults.rs"
+
+[[example]]
+name = "empty"
+path = "examples/app/empty.rs"
+
+[[example]]
+name = "headless"
+path = "examples/app/headless.rs"
+
+[[example]]
+name = "plugin"
+path = "examples/app/plugin.rs"
+
+[[example]]
+name = "thread_pool_resources"
+path = "examples/app/thread_pool_resources.rs"
+
+[[example]]
+name = "hot_asset_reloading"
+path = "examples/asset/hot_asset_reloading.rs"
+
+[[example]]
+name = "asset_loading"
+path = "examples/asset/asset_loading.rs"
+
+[[example]]
+name = "audio"
+path = "examples/audio/audio.rs"
+
+[[example]]
+name = "custom_diagnostic"
+path = "examples/diagnostics/custom_diagnostic.rs"
+
+[[example]]
+name = "print_diagnostics"
+path = "examples/diagnostics/print_diagnostics.rs"
+
+[[example]]
+name = "event"
+path = "examples/ecs/event.rs"
+
+[[example]]
+name = "startup_system"
+path = "examples/ecs/startup_system.rs"
+
+[[example]]
+name = "ecs_guide"
+path = "examples/ecs/ecs_guide.rs"
+
+[[example]]
+name = "breakout"
+path = "examples/game/breakout.rs"
+
+[[example]]
+name = "mouse_input"
+path = "examples/input/mouse_input.rs"
+
+[[example]]
+name = "mouse_input_events"
+path = "examples/input/mouse_input_events.rs"
+
+[[example]]
+name = "keyboard_input"
+path = "examples/input/keyboard_input.rs"
+
+[[example]]
+name = "keyboard_input_events"
+path = "examples/input/keyboard_input_events.rs"
+
+[[example]]
+name = "scene"
+path = "examples/scene/scene.rs"
+
+[[example]]
+name = "properties"
+path = "examples/scene/properties.rs"
+
+[[example]]
+name = "shader_custom_material"
+path = "examples/shader/shader_custom_material.rs"
+
+[[example]]
+name = "shader_defs"
+path = "examples/shader/shader_defs.rs"
+
+[[example]]
+name = "button"
+path = "examples/ui/button.rs"
+
+[[example]]
+name = "text"
+path = "examples/ui/text.rs"
+
+[[example]]
+name = "font_atlas_debug"
+path = "examples/ui/font_atlas_debug.rs"
+
+[[example]]
+name = "ui"
+path = "examples/ui/ui.rs"
+
+[[example]]
+name = "clear_color"
+path = "examples/window/clear_color.rs"
+
+[[example]]
+name = "multiple_windows"
+path = "examples/window/multiple_windows.rs"
+
+[[example]]
+name = "window_settings"
+path = "examples/window/window_settings.rs"
